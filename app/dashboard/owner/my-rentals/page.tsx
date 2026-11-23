@@ -1,6 +1,6 @@
 
 "use client";
-
+import { API_URL } from "@/lib/api";
 import { useEffect, useState } from "react";
 import { authClient } from "../../../../lib/auth-client";
 
@@ -37,7 +37,7 @@ export default function MyRentalsPage() {
       }
 
       const response = await fetch(
-        "http://localhost:5000/api/bookings/owner-bookings",
+        `${API_URL}/api/bookings/owner-bookings`,
         {
           headers: {
             Authorization: `Bearer ${data.token}`,
@@ -83,7 +83,7 @@ export default function MyRentalsPage() {
       }
 
       const response = await fetch(
-        `http://localhost:5000/api/bookings/${id}/status`,
+        `${API_URL}/api/bookings/${id}/status`,
         {
           method: "PATCH",
           headers: {

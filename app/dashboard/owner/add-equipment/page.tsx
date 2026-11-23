@@ -1,6 +1,6 @@
 
 "use client";
-
+import { API_URL } from "@/lib/api";
 import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -62,7 +62,7 @@ if (data?.token) {
         throw new Error("Please sign in again to continue.");
       }
 
-      const response = await fetch("http://localhost:5000/api/equipment", {
+      const response = await fetch(`${API_URL}/api/equipment`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -1,10 +1,8 @@
 
 "use client";
-
+import { API_URL } from "@/lib/api";
 import { useEffect, useState } from "react";
 import { authClient } from "@/lib/auth-client";
-
-const API_URL = "http://localhost:5000";
 
 type UserProfile = {
   name: string;

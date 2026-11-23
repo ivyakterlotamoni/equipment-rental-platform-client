@@ -2,7 +2,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
-import UserMenu from "../UserMenu";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -29,20 +28,41 @@ function Header() {
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600 text-xl text-white">
             ⚙
           </div>
+
           <span className="text-xl font-extrabold">
             Equip<span className="text-blue-600">Rent</span>
           </span>
         </Link>
 
         <div className="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
-          <Link href="/" className="hover:text-blue-600">Home</Link>
-          <Link href="/equipment" className="hover:text-blue-600">Equipment</Link>
-          <Link href="/#categories" className="hover:text-blue-600">Categories</Link>
-          <Link href="/#how-it-works" className="hover:text-blue-600">How It Works</Link>
+          <Link href="/" className="hover:text-blue-600">
+            Home
+          </Link>
+          <Link href="/equipment" className="hover:text-blue-600">
+            Equipment
+          </Link>
+          <Link href="/#categories" className="hover:text-blue-600">
+            Categories
+          </Link>
+          <Link href="/#how-it-works" className="hover:text-blue-600">
+            How It Works
+          </Link>
         </div>
 
         <div className="flex items-center gap-3">
-          <UserMenu />
+          <Link
+            href="/sign-in"
+            className="font-semibold text-slate-800 hover:text-blue-600"
+          >
+            Sign In
+          </Link>
+
+          <Link
+            href="/sign-up"
+            className="rounded-lg bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700"
+          >
+            Sign Up
+          </Link>
         </div>
       </nav>
     </header>
@@ -82,20 +102,25 @@ function Footer() {
         <div>
           <h3 className="font-bold text-white">Contact</h3>
           <p className="mt-5 text-sm leading-7 text-slate-400">
-            Bangladesh<br />
+            Bangladesh
+            <br />
             Equipment Rental Platform
           </p>
         </div>
       </div>
 
       <div className="border-t border-slate-800 px-5 py-6 text-center text-sm text-slate-500">
-        © {new Date().getFullYear()} EquipRent. All rights reserved.
+        © 2026 EquipRent. All rights reserved.
       </div>
     </footer>
   );
 }
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html
       lang="en"

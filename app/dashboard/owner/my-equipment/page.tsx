@@ -1,6 +1,6 @@
 
 "use client";
-
+import { API_URL } from "@/lib/api";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { authClient } from "../../../../lib/auth-client";
@@ -36,7 +36,7 @@ export default function MyEquipmentPage() {
       }
 
       const response = await fetch(
-        "http://localhost:5000/api/equipment/my-equipment",
+       `${API_URL}/api/equipment/my-equipment`,
         {
           headers: {
             Authorization: `Bearer ${data.token}`,
@@ -79,7 +79,7 @@ export default function MyEquipmentPage() {
       }
 
       const response = await fetch(
-        `http://localhost:5000/api/equipment/${id}`,
+        `${API_URL}/api/equipment/${id}`,
         {
           method: "DELETE",
           headers: {
